@@ -20,7 +20,7 @@ public class ModCreativeModeTabs {
                     .displayItems((parameters, item) -> {
                         //Items
                         item.accept(ModItems.SHARKTOOTH);
-                        item.accept(ModItems.BTSDUT);
+                        item.accept(ModItems.RDUT);
                         item.accept(ModItems.MALLEABLE_IRON_INGOT);
                         item.accept(ModItems.IRON_GRAPPLE_HEAD);
                         item.accept(ModItems.IRON_HANDLE);

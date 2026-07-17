@@ -23,7 +23,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.SHARKTOOTH, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.IRON_HANDLE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.ROPE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.BTSDUT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.RDUT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.IRON_GRAPPLE_HEAD, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.MALLEABLE_IRON_INGOT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.GRAPPLE_HOOK, ModelTemplates.FLAT_HANDHELD_ITEM);

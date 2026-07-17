@@ -1,0 +1,3 @@
+// 26.1.2	-999999999-01-01T00:00:00	Dagger Mod/Tags for minecraft:block
+c1298d4160ef1f1f2274479ff58be19588c3f58b data/minecraft/tags/block/mineable/pickaxe.json
+c1298d4160ef1f1f2274479ff58be19588c3f58b data/minecraft/tags/block/needs_iron_tool.json

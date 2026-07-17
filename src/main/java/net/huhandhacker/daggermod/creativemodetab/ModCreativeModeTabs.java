@@ -16,9 +16,14 @@ public class ModCreativeModeTabs {
             Identifier.fromNamespaceAndPath(DaggerMod.MOD_ID, "dagger_mod"),
             FabricCreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SHARKTOOTH))
                     .title(Component.translatable("creativemodetab.daggermod.dagger_mod"))
-                    .displayItems((parameters, output) -> {
-                        output.accept(ModItems.SHARKTOOTH);
-                        output.accept(ModItems.IRON_HANDLE);
+                    .displayItems((parameters, item) -> {
+                        item.accept(ModItems.SHARKTOOTH);
+                        item.accept(ModItems.BTSDUT);
+                        item.accept(ModItems.MALLEABLEIRONINGOT);
+                        item.accept(ModItems.IRONGRAPPLEHEAD);
+                        item.accept(ModItems.IRON_HANDLE);
+                        item.accept(ModItems.ROPE);
+                        item.accept(ModItems.GRAPPLEHOOK);
                     }).build());
 
 

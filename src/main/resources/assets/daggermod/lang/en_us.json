@@ -1,5 +1,15 @@
 {
   "item.daggermod.sharktooth": "Shark Tooth",
+
+  "item.daggermod.malleable_iron_ingot": "Malleable iron Ingot",
   "item.daggermod.iron_handle": "Iron Handle",
+  "item.daggermod.iron_grapple_head": "Iron Grapple Head",
+  "item.daggermod.rope": "Rope",
+  "item.daggermod.grapple_hook": "Grapple Hook",
+
+  "item.daggermod.btsdut": "Brittle To Stable Dagger Upgrade Template",
+
   "creativemodetab.daggermod.dagger_mod": "Dagger Mod"
+
+
 }

@@ -14,7 +14,12 @@ public class ModItems {
 
     public static final Item SHARKTOOTH = registerItem("sharktooth",
             properties -> new Item(properties.fireResistant().durability(10).rarity(Rarity.RARE).stacksTo(1)));
+    public static final Item MALLEABLEIRONINGOT = registerItem("malleable_iron_ingot", Item::new);
     public static final Item IRON_HANDLE = registerItem("iron_handle", Item::new);
+    public static final Item IRONGRAPPLEHEAD = registerItem("iron_grapple_head", Item::new);
+    public static final Item ROPE = registerItem("rope", Item::new);
+    public static final Item GRAPPLEHOOK = registerItem("grapple_hook", Item::new);
+    public static final Item BTSDUT = registerItem("btsdut", Item::new);
 
     private static Item registerItem(String name, Function<Item.Properties, Item> function) {
         return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(DaggerMod.MOD_ID, name),

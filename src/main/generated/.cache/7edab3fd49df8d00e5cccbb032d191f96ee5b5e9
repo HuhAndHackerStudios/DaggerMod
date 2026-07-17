@@ -1,4 +1,5 @@
 // 26.1.2	-999999999-01-01T00:00:00	Dagger Mod/Model Definitions
+29eca750af315d58a1b9f075b63e8e9186fa519f assets/daggermod/blockstates/temp_block.json
 44a30d973841a6b918a9067d3a6e5494b8e88c5d assets/daggermod/items/btsdut.json
 338ab036da5656539a6d60a4362219f8a4f23e0f assets/daggermod/items/grapple_hook.json
 5f9012f0a679f152a534d3d30205bf62bd96c9a8 assets/daggermod/items/iron_grapple_head.json
@@ -6,6 +7,8 @@
 2f80cd79ec26da0b54d7217c40d224396e662c58 assets/daggermod/items/malleable_iron_ingot.json
 ca32c7c5ddc8683d40b394f439cb985b329208f8 assets/daggermod/items/rope.json
 eaa41f03bbef91d1e801e700b884041804c5b120 assets/daggermod/items/sharktooth.json
+05996ed29db00360cc61823a33f1524624b0b3c1 assets/daggermod/items/temp_block.json
+3337f49e1845d7dfaa27b2be990a857d0a638793 assets/daggermod/models/block/temp_block.json
 f6604c21f595f608e682c51b73ea433bacbe5717 assets/daggermod/models/item/btsdut.json
 5db7939634e7416b7b2b4c2758c1fd793a72e90f assets/daggermod/models/item/grapple_hook.json
 468e4a4929b2f4cbb104763f83304ee77b516693 assets/daggermod/models/item/iron_grapple_head.json

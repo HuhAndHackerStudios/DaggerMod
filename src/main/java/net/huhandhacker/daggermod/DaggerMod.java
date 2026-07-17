@@ -1,6 +1,7 @@
 package net.huhandhacker.daggermod;
 
 import net.fabricmc.api.ModInitializer;
+import net.huhandhacker.daggermod.block.ModBlocks;
 import net.huhandhacker.daggermod.creativemodetab.ModCreativeModeTabs;
 import net.huhandhacker.daggermod.item.ModItems;
 import net.minecraft.resources.Identifier;
@@ -18,6 +19,7 @@ public class DaggerMod implements ModInitializer {
 
 		ModCreativeModeTabs.registerModCreativeModeTabs();
 		ModItems.registerItems();
+		ModBlocks.registerModBlocks();
 	}
 
 	public static Identifier id(String path) {

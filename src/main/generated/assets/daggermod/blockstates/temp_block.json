@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "daggermod:block/temp_block"
+    }
+  }
+}

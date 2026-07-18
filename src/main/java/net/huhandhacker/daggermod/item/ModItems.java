@@ -2,6 +2,7 @@ package net.huhandhacker.daggermod.item;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.huhandhacker.daggermod.DaggerMod;
+import net.huhandhacker.daggermod.item.custom.DaggerItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,8 @@ public class ModItems {
     public static final Item ROPE = registerItem("rope", Item::new);
     public static final Item GRAPPLE_HOOK = registerItem("grapple_hook",properties -> new Item(properties.stacksTo(1)));
     public static final Item RDUT = registerItem("rdut", Item::new);
+
+    public static final Item TEST_DAGGER = registerItem("test_dagger", properties -> new DaggerItem(properties.durability(100)));
 
     private static Item registerItem(String name, Function<Item.Properties, Item> function) {
         return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(DaggerMod.MOD_ID, name),

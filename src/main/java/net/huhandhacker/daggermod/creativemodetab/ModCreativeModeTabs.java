@@ -26,6 +26,7 @@ public class ModCreativeModeTabs {
                         item.accept(ModItems.IRON_HANDLE);
                         item.accept(ModItems.ROPE);
                         item.accept(ModItems.GRAPPLE_HOOK);
+                        item.accept(ModItems.TEST_DAGGER);
 
                         //Blocks
                         item.accept(ModBlocks.TEMP_BLOCK);

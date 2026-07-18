@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.huhandhacker.daggermod.datagen.ModBlockLootTableProvider;
 import net.huhandhacker.daggermod.datagen.ModBlockTagsProvider;
 import net.huhandhacker.daggermod.datagen.ModModelProvider;
+import net.huhandhacker.daggermod.datagen.ModRecipeProvider;
 
 public class DaggerModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -14,5 +15,6 @@ public class DaggerModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModBlockTagsProvider::new);
 		pack.addProvider(ModBlockLootTableProvider::new);
+		pack.addProvider(ModRecipeProvider::new);
 	}
 }

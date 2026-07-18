@@ -1,0 +1,7 @@
+// 26.1.2	-999999999-01-01T00:00:00	Dagger Mod/Dagger Mod Recipes
+47e1814cc71588e55c3bc5808f5acedb45680eb7 data/daggermod/advancement/recipes/misc/rdut.json
+585b6dd04b6ad2c4354a9a3e0b4093d52123fa7d data/daggermod/advancement/recipes/misc/rope.json
+a5ad32ac814a4aa9cdd40fd66d050d2bc0cfe77a data/daggermod/advancement/recipes/tools/grapple_hook.json
+d010837d856c5f89035195bf645acab1d62d435c data/daggermod/recipe/grapple_hook.json
+020082f085e1c7f3a2be962a1a59f25901cd94c0 data/daggermod/recipe/rdut.json
+c87129fbafbf618dcfe3e72de71fb4ea3b7c67c2 data/daggermod/recipe/rope.json

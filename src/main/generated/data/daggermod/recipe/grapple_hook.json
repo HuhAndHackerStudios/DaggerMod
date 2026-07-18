@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "dagger mod",
+  "key": {
+    "A": "daggermod:iron_handle",
+    "H": "daggermod:iron_grapple_head",
+    "R": "daggermod:rope"
+  },
+  "pattern": [
+    "  H",
+    " R ",
+    "A  "
+  ],
+  "result": {
+    "id": "daggermod:grapple_hook"
+  }
+}

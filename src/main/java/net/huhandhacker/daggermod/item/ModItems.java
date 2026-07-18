@@ -13,7 +13,7 @@ import java.util.function.Function;
 public class ModItems {
 
     public static final Item SHARKTOOTH = registerItem("sharktooth",
-            properties -> new Item(properties.durability(10).rarity(Rarity.RARE).stacksTo(1)));
+            properties -> new Item(properties.durability(10).rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final Item MALLEABLE_IRON_INGOT = registerItem("malleable_iron_ingot", Item::new);
     public static final Item IRON_HANDLE = registerItem("iron_handle", Item::new);
     public static final Item IRON_GRAPPLE_HEAD = registerItem("iron_grapple_head", Item::new);

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "daggermod:rdut"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_trident": {
+      "conditions": {
+        "items": [
+          {
+            "items": "daggermod:rdut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_trident"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "daggermod:rdut"
+    ]
+  }
+}

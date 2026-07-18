@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "dagger mod",
+  "key": {
+    "F": "minecraft:feather",
+    "S": "minecraft:string"
+  },
+  "pattern": [
+    "SSS",
+    "SFS",
+    "SSS"
+  ],
+  "result": {
+    "id": "daggermod:rope"
+  }
+}

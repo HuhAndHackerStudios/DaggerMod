@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "dagger mod",
+  "key": {
+    "D": "minecraft:diamond",
+    "P": "minecraft:dark_prismarine",
+    "T": "minecraft:trident"
+  },
+  "pattern": [
+    "DTD",
+    "DPD",
+    "DDD"
+  ],
+  "result": {
+    "id": "daggermod:rdut"
+  }
+}

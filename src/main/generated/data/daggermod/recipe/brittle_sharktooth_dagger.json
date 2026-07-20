@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "dagger mod",
+  "key": {
+    "D": "daggermod:sharktooth",
+    "P": "minecraft:heavy_core"
+  },
+  "pattern": [
+    "D",
+    "P",
+    "P"
+  ],
+  "result": {
+    "id": "daggermod:brittle_sharktooth_dagger"
+  }
+}

@@ -26,10 +26,11 @@ public class ModCreativeModeTabs {
                         item.accept(ModItems.IRON_HANDLE);
                         item.accept(ModItems.ROPE);
                         item.accept(ModItems.GRAPPLE_HOOK);
-                        item.accept(ModItems.TEST_DAGGER);
+                        item.accept(ModItems.BRITTLE_SHARKTOOTH_DAGGER);
 
                         //Blocks
                         item.accept(ModBlocks.TEMP_BLOCK);
+                        item.accept(ModBlocks.FORGE_BLOCK);
                     }).build());
 
 

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "daggermod:item/test_dagger"
+    "layer0": "daggermod:item/brittle_sharktooth_dagger"
   }
 }

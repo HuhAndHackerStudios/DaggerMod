@@ -1,5 +1,6 @@
 {
   "values": [
-    "daggermod:temp_block"
+    "daggermod:temp_block",
+    "daggermod:forge"
   ]
 }

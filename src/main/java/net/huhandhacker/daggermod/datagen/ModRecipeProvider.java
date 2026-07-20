@@ -8,9 +8,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -53,6 +51,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .define('P', Items.DARK_PRISMARINE)
                         .define('T', Items.TRIDENT)
                         .unlockedBy(getHasName(Items.TRIDENT), has(ModItems.RDUT))
+                        .group("dagger mod")
+                        .save(output);
+
+                shaped(RecipeCategory.MISC, ModItems.BRITTLE_SHARKTOOTH_DAGGER)
+                        .pattern("D")
+                        .pattern("P")
+                        .pattern("P")
+                        .define('D', ModItems.SHARKTOOTH)
+                        .define('P', Items.HEAVY_CORE)
+                        .unlockedBy(getHasName(ModItems.SHARKTOOTH), has(ModItems.BRITTLE_SHARKTOOTH_DAGGER))
                         .group("dagger mod")
                         .save(output);
 

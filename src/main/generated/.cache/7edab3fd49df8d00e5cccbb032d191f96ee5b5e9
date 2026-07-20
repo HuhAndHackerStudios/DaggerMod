@@ -1,5 +1,8 @@
 // 26.1.2	-999999999-01-01T00:00:00	Dagger Mod/Model Definitions
+40e57517b9a1721a0004028b05e25483ea5287ba assets/daggermod/blockstates/forge.json
 29eca750af315d58a1b9f075b63e8e9186fa519f assets/daggermod/blockstates/temp_block.json
+471aa033222f0950aff0d5f728926ca693eb279d assets/daggermod/items/brittle_sharktooth_dagger.json
+f6fbc9b0bba2fcdc3d08e59ff05306b73b2bf4de assets/daggermod/items/forge.json
 338ab036da5656539a6d60a4362219f8a4f23e0f assets/daggermod/items/grapple_hook.json
 5f9012f0a679f152a534d3d30205bf62bd96c9a8 assets/daggermod/items/iron_grapple_head.json
 049c1dcd224cfd28290d44eb3caaf3a2d19d0ba0 assets/daggermod/items/iron_handle.json
@@ -8,8 +11,8 @@
 ca32c7c5ddc8683d40b394f439cb985b329208f8 assets/daggermod/items/rope.json
 eaa41f03bbef91d1e801e700b884041804c5b120 assets/daggermod/items/sharktooth.json
 05996ed29db00360cc61823a33f1524624b0b3c1 assets/daggermod/items/temp_block.json
-d0df7bb42bc6443f1abd7e23a1834473ec85cd0b assets/daggermod/items/test_dagger.json
 3337f49e1845d7dfaa27b2be990a857d0a638793 assets/daggermod/models/block/temp_block.json
+c7cfa9758f967e06601402ce17b568a18297d9fb assets/daggermod/models/item/brittle_sharktooth_dagger.json
 5db7939634e7416b7b2b4c2758c1fd793a72e90f assets/daggermod/models/item/grapple_hook.json
 468e4a4929b2f4cbb104763f83304ee77b516693 assets/daggermod/models/item/iron_grapple_head.json
 91277174e0480bbad21e556b830d7977380cf9c3 assets/daggermod/models/item/iron_handle.json
@@ -17,4 +20,3 @@ a875e50de897113989016ffafa74eafac8f1ece3 assets/daggermod/models/item/malleable_
 e3798926e1818de7a9c1512a7255aedf0b25222d assets/daggermod/models/item/rdut.json
 b2d92554e7893bfd3477fd24c96d76dff275bc55 assets/daggermod/models/item/rope.json
 432ad4908eabdf801bc94eadde10c491da67a276 assets/daggermod/models/item/sharktooth.json
-25cd133d5d3f73b4102204f9394f9be2b5d87be9 assets/daggermod/models/item/test_dagger.json

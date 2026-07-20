@@ -16,9 +16,11 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.TEMP_BLOCK);
+                .add(ModBlocks.TEMP_BLOCK)
+                .add(ModBlocks.FORGE_BLOCK);
 
         valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.TEMP_BLOCK);
+                .add(ModBlocks.TEMP_BLOCK)
+                .add(ModBlocks.FORGE_BLOCK);
     }
 }

@@ -16,6 +16,8 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
         blockModelGenerators.createTrivialCube(ModBlocks.TEMP_BLOCK);
+
+        blockModelGenerators.createNonTemplateModelBlock(ModBlocks.FORGE_BLOCK);
     }
 
     @Override
@@ -27,6 +29,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.IRON_GRAPPLE_HEAD, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.MALLEABLE_IRON_INGOT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.GRAPPLE_HOOK, ModelTemplates.FLAT_HANDHELD_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.TEST_DAGGER, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.BRITTLE_SHARKTOOTH_DAGGER, ModelTemplates.FLAT_HANDHELD_ITEM);
     }
 }

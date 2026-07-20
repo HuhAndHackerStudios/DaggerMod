@@ -15,5 +15,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
     @Override
     public void generate() {
         dropSelf(ModBlocks.TEMP_BLOCK);
+        dropSelf(ModBlocks.FORGE_BLOCK);
     }
 }

@@ -1,6 +1,7 @@
 package net.huhandhacker.daggermod.block;
 
 import net.huhandhacker.daggermod.DaggerMod;
+import net.huhandhacker.daggermod.block.custom.ForgeBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +18,8 @@ import java.util.function.Function;
 public class ModBlocks {
 
     public static final Block TEMP_BLOCK = registerBlock("temp_block", properties -> new Block(
+            properties.strength(3.5f).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
+    public static final Block FORGE_BLOCK = registerBlock("forge", properties -> new ForgeBlock(
             properties.strength(3.5f).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
 
 

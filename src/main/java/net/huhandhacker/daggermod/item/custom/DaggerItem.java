@@ -1,30 +1,24 @@
 package net.huhandhacker.daggermod.item.custom;
 
 import net.huhandhacker.daggermod.DaggerMod;
-import net.minecraft.core.Holder;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
+import net.huhandhacker.daggermod.stat.ModStats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
-import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 public class DaggerItem extends Item {
     public DaggerItem(Properties properties) {
@@ -43,33 +37,58 @@ public class DaggerItem extends Item {
         return 62000;
     }
 
-    @Override
-    public boolean releaseUsing(final ItemStack itemStack, final Level level, final LivingEntity entity, final int remainingTime) {
-        if (entity instanceof Player player) {
-            if (player.getFoodData().getFoodLevel() > 1) {
-                    int timeHeld = this.getUseDuration(itemStack, entity) - remainingTime;
-                if (timeHeld < 10) {
-                    return false;
-                }
-                float yRot = player.getYRot();
-                float xRot = player.getXRot();
-                float xd = -Mth.sin(yRot * (float) (Math.PI / 180.0)) * Mth.cos(xRot * (float) (Math.PI / 180.0));
-                float yd = -Mth.sin(xRot * (float) (Math.PI / 180.0));
-                float zd = Mth.cos(yRot * (float) (Math.PI / 180.0)) * Mth.cos(xRot * (float) (Math.PI / 180.0));
-                float dist = Mth.sqrt(xd * xd + yd * yd + zd * zd);
-                xd *= 0.75 / dist;
-                yd *= 0.75 / dist;
-                zd *= 0.75 / dist;
-                LOGGER.info(String.valueOf("x:" + player.getLookAngle().x));
-                LOGGER.info(String.valueOf("y:" + player.getLookAngle().y));
-                LOGGER.info(String.valueOf("z:" + player.getLookAngle().z));
-                player.causeFoodExhaustion(10F);
-                player.push(xd, yd, zd);
 
-                if (player.onGround()) {
-                    float heightDifference = 0.001F;
-                    player.move(MoverType.SELF, new Vec3(0.0, 0.001F, 0.0));
+
+    @Override
+    public boolean releaseUsing(final ItemStack itemStack, final Level level, final LivingEntity entityt, final int remainingTime) {
+        if (entityt instanceof Player player) {
+            int timeHeld = this.getUseDuration(itemStack, entityt) - remainingTime;
+            if (timeHeld < 10) {
+                return false;
+            }
+            if (player.getFoodData().getFoodLevel() > 1) {
+
+                Vec3 look = player.getLookAngle();
+
+                AABB hitbox = player.getBoundingBox()
+                        .expandTowards(player.getDeltaMovement())
+                        .inflate(0.5);
+
+                List<LivingEntity> entities = level.getEntitiesOfClass(
+                        LivingEntity.class,
+                        hitbox,
+                        entity -> entity != player && entity.isAlive()
+                );
+
+                if (!entities.isEmpty()) {
+                    LivingEntity target = entities.getFirst();
+
+                    Vec3 targetLook = target.getLookAngle();
+
+                    Vec3 toPlayer = player.position()
+                            .subtract(target.position())
+                            .normalize();
+
+                    double dot = targetLook.dot(toPlayer);
+
+                    if (dot < 0.6) {
+
+                        target.hurt(
+                                player.damageSources().playerAttack(player),
+                                38.0F
+                        );
+                        player.awardStat(ModStats.BACKSTABS);
+
+                    } else {
+
+                        target.hurt(
+                                player.damageSources().playerAttack(player),
+                                7.25F
+                        );
+
+                    }
                 }
+
             }
         } else {
             return false;

@@ -22,7 +22,7 @@ public class ModItems {
     public static final Item GRAPPLE_HOOK = registerItem("grapple_hook",properties -> new Item(properties.stacksTo(1)));
     public static final Item RDUT = registerItem("rdut", Item::new);
 
-    public static final Item TEST_DAGGER = registerItem("test_dagger", properties -> new DaggerItem(properties.durability(100)));
+    public static final Item BRITTLE_SHARKTOOTH_DAGGER = registerItem("brittle_sharktooth_dagger", properties -> new DaggerItem(properties.durability(100).stacksTo(1).rarity(Rarity.EPIC)));
 
     private static Item registerItem(String name, Function<Item.Properties, Item> function) {
         return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(DaggerMod.MOD_ID, name),

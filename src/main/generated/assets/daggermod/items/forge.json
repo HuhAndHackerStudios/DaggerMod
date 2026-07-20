@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "daggermod:item/test_dagger"
+    "model": "daggermod:block/forge"
   }
 }

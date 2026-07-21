@@ -12,6 +12,11 @@
   "stat.daggermod.forge_interactions": "Forges Interacted With",
   "stat.daggermod.backstabs": "Backstabs",
 
+  "painting.daggermod.the_finals.title" : "The Finals",
+  "painting.daggermod.the_finals.author" : "Embark Studios",
+  "painting.daggermod.dagger.title" : "The Dagger",
+  "painting.daggermod.dagger.author" : "Huh",
+
   "item.daggermod.rdut": "Reinforced Dagger Upgrade Template",
 
   "block.daggermod.temp_block": "Temp Block for Testing",

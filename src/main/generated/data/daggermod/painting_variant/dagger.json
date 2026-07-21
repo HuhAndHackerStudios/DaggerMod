@@ -1,0 +1,13 @@
+{
+  "asset_id": "daggermod:dagger",
+  "author": {
+    "color": "gray",
+    "translate": "painting.daggermod.dagger.author"
+  },
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.daggermod.dagger.title"
+  },
+  "width": 2
+}

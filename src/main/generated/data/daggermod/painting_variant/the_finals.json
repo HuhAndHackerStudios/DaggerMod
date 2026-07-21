@@ -1,0 +1,13 @@
+{
+  "asset_id": "daggermod:the_finals",
+  "author": {
+    "color": "gray",
+    "translate": "painting.daggermod.the_finals.author"
+  },
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.daggermod.the_finals.title"
+  },
+  "width": 2
+}

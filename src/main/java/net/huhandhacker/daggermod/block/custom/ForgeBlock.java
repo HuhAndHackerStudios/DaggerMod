@@ -4,9 +4,15 @@ import com.mojang.serialization.MapCodec;
 import net.huhandhacker.daggermod.blockentity.ForgeBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -16,6 +22,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -28,33 +35,42 @@ import org.jspecify.annotations.Nullable;
 public class ForgeBlock extends BaseEntityBlock {
 
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final BooleanProperty LIT = BlockStateProperties.LIT;
     private static final VoxelShape SHAPE_NORTH = Shapes.or(
-            // Bottom plate
-            Block.box(0, 3, 0, 16, 5, 16),
+            Block.box(0, 0, 0, 8, 10, 16),
 
-            // Main side walls
-            Block.box(0, 5, 0, 16, 8, 1),
-            Block.box(0, 5, 15, 16, 8, 16),
-            Block.box(0, 5, 1, 1, 8, 16),
-            Block.box(15, 5, 1, 16, 8, 16),
+            // Left rim
+            Block.box(0, 10, 0, 1, 12, 16),
 
-            // Upper platform
-            Block.box(0, 8, 0, 16, 10, 16),
+            // Right rim
+            Block.box(7, 10, 0, 8, 12, 16),
 
-            // Middle forge block
-            Block.box(4, 10, 4, 12, 12, 12),
+            // Front rim
+            Block.box(1, 10, 0, 7, 12, 1),
 
-            // Chimney / raised section
-            Block.box(12, 10, 4, 15, 13, 12),
+            // Back rim
+            Block.box(1, 10, 15, 7, 12, 16),
 
-            // Small top supports
-            Block.box(6, 12, 6, 10, 14, 10),
+            // Front top lip
+            Block.box(1, 10, 1, 7, 11, 4),
 
-            // Feet
-            Block.box(0, 0, 0, 2, 3, 2),
-            Block.box(14, 0, 0, 16, 3, 2),
-            Block.box(14, 0, 14, 16, 3, 16),
-            Block.box(0, 0, 14, 2, 3, 16)
+            // Back top lip
+            Block.box(1, 10, 12, 7, 11, 15),
+
+            // Right attachment base
+            Block.box(10, 9, 5, 14, 17, 11),
+
+            // Right arm
+            Block.box(12, 5, 7, 14, 9, 9),
+
+            // Horizontal connector
+            Block.box(8, 5, 7, 12, 7, 9),
+
+            // End cap
+            Block.box(14, 9, 7, 16, 10, 9),
+
+            // Top cap
+            Block.box(14, 16, 7, 16, 17, 9)
     );
 
     public ForgeBlock(Properties properties) {
@@ -65,14 +81,30 @@ public class ForgeBlock extends BaseEntityBlock {
         );
     }
 
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (state.getValue(LIT)) {
+            double x = pos.getX() + 0.5;
+            double y = pos.getY();
+            double z = pos.getZ() + 0.5;
+            if (random.nextDouble() < 0.1) {
+                level.playLocalSound(x, y, z, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+            }
 
+            Direction direction = state.getValue(FACING);
+            Direction.Axis axis = direction.getAxis();
+            double r = 0.52;
+            double ss = random.nextDouble() * 0.6 - 0.3;
+            double dx = axis == Direction.Axis.X ? direction.getStepX() * 0.52 : ss;
+            double dy = random.nextDouble() * 6.0 / 16.0;
+            double dz = axis == Direction.Axis.Z ? direction.getStepZ() * 0.52 : ss;
+            level.addParticle(ParticleTypes.SMOKE, x + dx, y + dy, z + dz, 0.0, 0.0, 0.0);
+            level.addParticle(ParticleTypes.FLAME, x + dx, y + dy, z + dz, 0.0, 0.0, 0.0);
+        }
+    }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state,
-                                               Level level,
-                                               BlockPos pos,
-                                               Player player,
-                                               BlockHitResult hit) {
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
 
         if (!(level.getBlockEntity(pos) instanceof ForgeBlockEntity forgeBlockEntity)) {
             return InteractionResult.PASS;
@@ -89,20 +121,23 @@ public class ForgeBlock extends BaseEntityBlock {
         return InteractionResult.SUCCESS;
     }
 
+
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return simpleCodec(ForgeBlock::new);
     }
+
+
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos worldPosition, BlockState blockState) {
         return new ForgeBlockEntity(worldPosition, blockState);
     }
 
-    private static final VoxelShape NORTH = rotateShape(Direction.SOUTH, SHAPE_NORTH);
-    private static final VoxelShape SOUTH = rotateShape(Direction.NORTH, SHAPE_NORTH);
-    private static final VoxelShape EAST = rotateShape(Direction.WEST, SHAPE_NORTH);
-    private static final VoxelShape WEST = rotateShape(Direction.EAST, SHAPE_NORTH);
+    private static final VoxelShape NORTH = rotateShape(Direction.EAST, SHAPE_NORTH);
+    private static final VoxelShape SOUTH = rotateShape(Direction.WEST, SHAPE_NORTH);
+    private static final VoxelShape EAST = rotateShape(Direction.SOUTH, SHAPE_NORTH);
+    private static final VoxelShape WEST = rotateShape(Direction.NORTH, SHAPE_NORTH);
 
     private static VoxelShape rotateShape(Direction direction, VoxelShape shape) {
         VoxelShape[] buffer = {shape, Shapes.empty()};
@@ -153,6 +188,7 @@ public class ForgeBlock extends BaseEntityBlock {
             StateDefinition.Builder<Block, BlockState> builder
     ) {
         builder.add(FACING);
+        builder.add(LIT);
     }
 
     @Override

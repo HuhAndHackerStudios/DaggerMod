@@ -44,53 +44,55 @@ public class DaggerItem extends Item {
     public boolean releaseUsing(final ItemStack itemStack, final Level level, final LivingEntity entityt, final int remainingTime) {
         if (entityt instanceof Player player) {
             int timeHeld = this.getUseDuration(itemStack, entityt) - remainingTime;
-            if (timeHeld < 10) {
+            if (timeHeld < 6200) {
                 return false;
             }
-            if (player.getFoodData().getFoodLevel() > 1) {
+            else {
+                if (player.getFoodData().getFoodLevel() > 1) {
 
-                Vec3 look = player.getLookAngle();
+                    Vec3 look = player.getLookAngle();
 
-                AABB hitbox = player.getBoundingBox()
-                        .expandTowards(player.getDeltaMovement())
-                        .inflate(0.5);
+                    AABB hitbox = player.getBoundingBox()
+                            .expandTowards(player.getDeltaMovement())
+                            .inflate(0.5);
 
-                List<LivingEntity> entities = level.getEntitiesOfClass(
-                        LivingEntity.class,
-                        hitbox,
-                        entity -> entity != player && entity.isAlive()
-                );
+                    List<LivingEntity> entities = level.getEntitiesOfClass(
+                            LivingEntity.class,
+                            hitbox,
+                            entity -> entity != player && entity.isAlive()
+                    );
 
-                if (!entities.isEmpty()) {
-                    LivingEntity target = entities.getFirst();
+                    if (!entities.isEmpty()) {
+                        LivingEntity target = entities.getFirst();
 
-                    Vec3 targetLook = target.getLookAngle();
+                        Vec3 targetLook = target.getLookAngle();
 
-                    Vec3 toPlayer = player.position()
-                            .subtract(target.position())
-                            .normalize();
+                        Vec3 toPlayer = player.position()
+                                .subtract(target.position())
+                                .normalize();
 
-                    double dot = targetLook.dot(toPlayer);
+                        double dot = targetLook.dot(toPlayer);
 
-                    if (dot < 0.2) {
+                        if (dot < 0.1) {
 
-                        target.hurt(
-                                player.damageSources().playerAttack(player),
-                                38.0F
-                        );
-                        player.awardStat(ModStats.BACKSTABS);
-                        player.setPortalCooldown(10);
+                            target.hurt(
+                                    player.damageSources().playerAttack(player),
+                                    38.0F
+                            );
+                            player.awardStat(ModStats.BACKSTABS);
+                            player.getCooldowns().addCooldown(this.getDefaultInstance(), 20 * 20);
 
-                    } else {
+                        } else {
 
-                        target.hurt(
-                                player.damageSources().playerAttack(player),
-                                7.25F
-                        );
+                            target.hurt(
+                                    player.damageSources().playerAttack(player),
+                                    7.25F
+                            );
 
+                        }
                     }
-                }
 
+                }
             }
         } else {
             return false;

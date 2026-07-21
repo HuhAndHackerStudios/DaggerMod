@@ -18,6 +18,7 @@ import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.util.List;
 
 public class DaggerItem extends Item {
@@ -71,13 +72,14 @@ public class DaggerItem extends Item {
 
                     double dot = targetLook.dot(toPlayer);
 
-                    if (dot < 0.6) {
+                    if (dot < 0.2) {
 
                         target.hurt(
                                 player.damageSources().playerAttack(player),
                                 38.0F
                         );
                         player.awardStat(ModStats.BACKSTABS);
+                        player.setPortalCooldown(10);
 
                     } else {
 

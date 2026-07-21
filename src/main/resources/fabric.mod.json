@@ -18,6 +18,9 @@
 		"main": [
 			"net.huhandhacker.daggermod.DaggerMod"
 		],
+		"client": [
+			"net.huhandhacker.daggermod.screen.ModScreens"
+		],
 		"fabric-datagen": [
 			"net.huhandhacker.daggermod.DaggerModDataGenerator"
 		]

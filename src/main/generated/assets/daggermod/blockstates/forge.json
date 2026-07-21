@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "daggermod:block/forge"
+    "facing=north": {
+      "model": "daggermod:block/forge",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "daggermod:block/forge",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "daggermod:block/forge",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "daggermod:block/forge",
+      "y":90
     }
   }
 }

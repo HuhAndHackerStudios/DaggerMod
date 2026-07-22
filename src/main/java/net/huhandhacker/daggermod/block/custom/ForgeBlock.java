@@ -2,6 +2,7 @@ package net.huhandhacker.daggermod.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.huhandhacker.daggermod.blockentity.ForgeBlockEntity;
+import net.huhandhacker.daggermod.menu.ForgeMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -24,6 +25,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -36,6 +38,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+
     private static final VoxelShape SHAPE_NORTH = Shapes.or(
             Block.box(0, 0, 0, 8, 10, 16),
 
@@ -76,8 +79,7 @@ public class ForgeBlock extends BaseEntityBlock {
     public ForgeBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(
-                this.stateDefinition.any()
-                        .setValue(FACING, Direction.NORTH)
+                this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false)
         );
     }
 
@@ -120,7 +122,6 @@ public class ForgeBlock extends BaseEntityBlock {
 
         return InteractionResult.SUCCESS;
     }
-
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {

@@ -17,7 +17,7 @@ public class DaggerMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Your World Has Loaded Properly and there are no issues " +
+		LOGGER.info("Your Game Has Loaded Properly and there are no issues " +
 				"that will impede the function of the game at this time");
 
 		ModCreativeModeTabs.registerModCreativeModeTabs();
